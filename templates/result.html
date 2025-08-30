@@ -1,0 +1,71 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} - Download</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="bg-[#0f0f0f] text-white font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-[#202020] border-b border-gray-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+      <a href="/" class="flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             fill="red" viewBox="0 0 24 24" 
+             class="w-8 h-8">
+          <path d="M10 15V9l5 3-5 3z"/>
+        </svg>
+        <span class="text-xl font-bold tracking-tight">YT Shorts Downloader</span>
+      </a>
+      <form method="POST" action="/" class="hidden md:flex">
+        <input type="text" name="url" placeholder="Paste another link..."
+               class="w-72 px-4 py-2 bg-[#121212] text-sm rounded-l-lg focus:outline-none border border-gray-700">
+        <button type="submit" 
+                class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-r-lg text-sm font-semibold">
+          Fetch
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+    <!-- Video Player + Info -->
+    <section class="lg:col-span-2">
+      <div class="w-full aspect-video bg-black rounded-xl overflow-hidden">
+        <video controls  class="w-full h-full">
+          <source src="{{ video_url }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Video Title -->
+      <h1 class="mt-4 text-xl md:text-2xl font-semibold">{{ title }}</h1>
+
+      <!-- Meta Info -->
+      <div class="flex flex-wrap items-center gap-4 mt-2 text-sm text-gray-400">
+        <span>Duration: {{ duration }}s</span>
+        <span>Resolution: {{ resolution }}</span>
+      </div>
+
+    
+      </div>
+    </section>
+
+
+
+  </main>
+
+ <footer class=" border-gray-200 mt-12">
+    <div class="max-w-6xl mx-auto px-6 py-6 text-center text-gray-600 text-sm">
+      Built with ❤️ | Not affiliated with YouTube
+    </div>
+  </footer>
+
+</body>
+</html>
